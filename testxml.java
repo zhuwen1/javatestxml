@@ -50,6 +50,15 @@ public class testxml {
 				Element book = (Element) booklist.item(i);
 				String attrValue =book.getAttribute("id");
 				System.out.println("属性值是id,属性值得"+attrValue);
+				NodeList ChildsNode= book.getChildNodes();
+				System.out.println("第"+(i+1)+"本书一共有"+ChildsNode.getLength()+"个节点");
+				for(int k = 1;k<ChildsNode.getLength();k++){
+					if(ChildsNode.item(k).getNodeType() == Node.ELEMENT_NODE){
+						System.out.print("第"+(k+1)+"个子节点"+ChildsNode.item(k).getNodeName()+":");
+						System.out.println("--节点值是:"+ChildsNode.item(k).getFirstChild().getNodeValue());
+					}
+					
+				}
 				System.out.println("==================第"+(i+1)+"本书已经被遍历完了===================================");
 			}
 			
